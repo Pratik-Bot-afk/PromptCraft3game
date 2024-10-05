@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Interactive Games</h1>
+        <nav>
+            <button onclick="showGame('ticTacToe')">Tic Tac Toe</button>
+            <button onclick="showGame('dinosaurGame')">Dinosaur Game</button>
+            <button onclick="showGame('ageCalculator')">Age Calculator</button>
+        </nav>
+    </header>
+
+    <main>
+        <div id="ticTacToe" class="game" style="display:none;">
+            <h2>Tic Tac Toe</h2>
+            <div class="grid">
+                <div class="cell" onclick="makeMove(0)"></div>
+                <div class="cell" onclick="makeMove(1)"></div>
+                <div class="cell" onclick="makeMove(2)"></div>
+                <div class="cell" onclick="makeMove(3)"></div>
+                <div class="cell" onclick="makeMove(4)"></div>
+                <div class="cell" onclick="makeMove(5)"></div>
+                <div class="cell" onclick="makeMove(6)"></div>
+                <div class="cell" onclick="makeMove(7)"></div>
+                <div class="cell" onclick="makeMove(8)"></div>
+            </div>
+            <div id="ticTacToeStatus"></div>
+        </div>
+
+        <div id="dinosaurGame" class="game" style="display:none;">
+            <h2>Dinosaur Game</h2>
+            <canvas id="dinoCanvas" width="800" height="400"></canvas>
+            <div id="dinoScore">Score: 0</div>
+        </div>
+
+        <div id="ageCalculator" class="game" style="display:none;">
+            <h2>Age Calculator</h2>
+            <label for="dob">Enter your Date of Birth:</label>
+            <input type="date" id="dob" />
+            <button onclick="calculateAge()">Calculate Age</button>
+            <div id="ageResult"></div>
+        </div>
+    </main>
+
+    <script src="tic-tac-toe.js"></script>
+    <script src="dinosaur-game.js"></script>
+    <script src="age-calculator.js"></script>
+    <script>
+        function showGame(gameId) {
+            const games = document.querySelectorAll('.game');
+            games.forEach(game => {
+                game.style.display = 'none'; // Hide all games
+            });
+            document.getElementById(gameId).style.display = 'block'; // Show the selected game
+        }
+    </script>
+</body>
+</html>
